@@ -32,7 +32,7 @@
           <p class="welcome-msg">Welcome to Williams Funeral Home</p>
         </div>
         <div class="col-md-6">
-          <p class="navbar-text navbar-right"> <a href="location.html" class="location-link"><i class="fa fa-map-marker"></i>View Location</a> <span class="call-number"><i class="fa fa-phone"></i>803-773-6422 </span></p>
+          <p class="navbar-text navbar-right"> <a href="{{route('location')}}" class="location-link"><i class="fa fa-map-marker"></i>View Location</a> <span class="call-number"><i class="fa fa-phone"></i>803-773-6422 </span></p>
         </div>
       </div>
     </div>
@@ -45,59 +45,59 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="index.html"><h2>Established 1945</h2></a> </div>
+            <a class="navbar-brand" href="{{route('home')}}"><h2>Established 1945</h2></a> </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="main-navigation">
             <ul class="nav navbar-nav navbar-right">
-              <li> <a href="index.html" title="Homepage">Home</a></li>
+              <li> <a href="{{route('home')}}" title="Homepage">Home</a></li>
 
-              <li> <a href="about.html">About us <span class="fa fa-angle-down"></span></a>
+              <li> <a href="#">About us <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="about.html" title="About us">About Funeral</a></li>
-                  <li><a href="staffhistory.html" title="Staff history">Staff History</a></li>
-                  <li><a href="history.html" title="Family history">Family History</a></li>
+                  <li><a href="{{route('about')}}" title="About us">About Funeral</a></li>
+                  <li><a href="{{route('staffHistory')}}" title="Staff history">Staff History</a></li>
+                  <li><a href="{{route('history')}}" title="Family history">Family History</a></li>
                 </ul>
               </li>
 
-              <li> <a href="service.html">Services <span class="fa fa-angle-down"></span></a>
+              <li> <a href="{{route('services')}}">Services <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="traditionalfuneral.html" title="Traditional Funeral">Traditional Funeral</a></li>
-                  <li><a href="directBurials.html" title="Direct Burials">Direct Burials</a></li>
-                  <li><a href="directCremation.html" title="Direct Cremation">Direct Cremation</a></li>
+                  <li><a href="{{route('traditionalFuneral')}}" title="Traditional Funeral">Traditional Funeral</a></li>
+                  <li><a href="{{route('directBurial')}}" title="Direct Burials">Direct Burials</a></li>
+                  <li><a href="{{route('directCermation')}}" title="Direct Cremation">Direct Cremation</a></li>
                 </ul>
               </li>
 
-              <li> <a href="faqs.html" title="Frequently Asked Questions">FAQS</a></li>
+              <li> <a href="{{route('faqs')}}" title="Frequently Asked Questions">FAQS</a></li>
 
-              <li> <a href="links.html">Links <span class="fa fa-angle-down"></span></a>
+              <li> <a href="{{route('links')}}">Links <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="prePlanning.html" title="About Pre Planning">About Pre Planning</a></li>
-                  <li><a href="griefResources.html" title="Grief Resources">Grief Resources</a></li>
-                  <li><a href="error.html" title="Local Information">Local Information</a></li>
-                  <li><a href="socialSecurity.html" title="Social Security Benefits">Social Security Benefits</a></li>
-                  <li><a href="veterans.html" title="Veterans Benefits">Veterans Benefits</a></li>
+                  <li><a href="{{route('prePlan')}}l" title="About Pre Planning">About Pre Planning</a></li>
+                  <li><a href="{{route('griefResources')}}" title="Grief Resources">Grief Resources</a></li>
+                  <li><a href="{{route('error')}}" title="Local Information">Local Information</a></li>
+                  <li><a href="{{route('socialSecurity')}}" title="Social Security Benefits">Social Security Benefits</a></li>
+                  <li><a href="{{route('veterans')}}" title="Veterans Benefits">Veterans Benefits</a></li>
                 </ul>
               </li>
 
               <li> <a href="#">Online <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="createAlbum.html" title="Online Albums">Online Albums</a></li>
-                  <li><a href="merch.html" title="Merchandise">Merchandise</a></li>
-                  <li><a href="preForm.html" title="Pre Planning Form">Pre Planning Form</a></li>
+                  <li><a href="{{route('albums')}}" title="Online Albums">Online Albums</a></li>
+                  <li><a href="{{route('merch')}}" title="Merchandise">Merchandise</a></li>
+                  <li><a href="{{route('prePlaning')}}" title="Pre Planning Form">Pre Planning Form</a></li>
                 </ul>
               </li>
 
-              <li> <a href="obituaries-listing.html" title="Obituaries">Obituaries </a></li>
+              <li> <a href="{{route('obituaries-list')}}" title="Obituaries">Obituaries </a></li>
 
-              <li> <a href="sendFlowers.html" title="Send Flowers">Send Flowers </a></li>
+              <li> <a href="{{route('florist-list')}}" title="Send Flowers">Send Flowers </a></li>
 
               <!-- <li> <a href="location.html" title="Directions">Directions</a></li> -->
 
               <li><a href="#" title="Contact">Contact <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="contact-us.html" title="Contact Us">Contact Us</a></li>
-                  <li><a href="location.html" title="Directions">Directions</a></li>
+                  <li><a href="{{route('contact')}}" title="Contact Us">Contact Us</a></li>
+                  <li><a href="{{route('location')}}" title="Directions">Directions</a></li>
                 </ul>
               </li>
 
@@ -156,78 +156,25 @@
             </div>
           </div>
         </div>
-        <div class="obituaries-block"><!-- obituaries block -->
-          <div class="well-default">
-            <div class="row">
-              <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
-              <div class="col-md-9">
-                <h2><a href="obituaries-detail.html" title="Obituaries Title">Elishabeth Rowe</a><small class="obituaries-age">(Age 54)</small> <span class="obituaries-meta">( Sep 18, 1948 - Mar 19, 2013 )</span></h2>
-                <p>Phasellus faucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim tumsodalesm quis. Faucibus ut purus a condimentucibus ut purus a condimentum. </p>
-                <a href="obituaries-detail.html" class="btn btn-secondary">Send Condolences</a> </div>
+        @foreach ($obi as $o)
+          <div class="obituaries-block"><!-- obituaries block -->
+            <div class="well-default">
+              <div class="row">
+                <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
+                <div class="col-md-9">
+                  @php
+                    $dob = Carbon\Carbon::parse($o->dob);
+                    $dod = Carbon\Carbon::parse($o->dod);
+                    $diff = $dod->diffInYears($dob);
+                  @endphp
+                  <h2><a href="{{route('obituaries-details',['id'=>$o->id])}}" title="Obituaries Title">{{$o->name}}</a><small class="obituaries-age">(Age {{$diff}})</small> <span class="obituaries-meta">( {{$dob->toFormattedDateString()}} - {{$dod->toFormattedDateString()}} )</span></h2>
+                  <p>Phasellus faucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim tumsodalesm quis. Faucibus ut purus a condimentucibus ut purus a condimentum. </p>
+                  <a href="{{route('obituaries-details',['id'=>$o->id])}}" class="btn btn-secondary">Send Condolences</a> </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <!-- /.obituaries block -->
-        <div class="obituaries-block"><!-- obituaries block -->
-          <div class="well-default">
-            <div class="row">
-              <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
-              <div class="col-md-9">
-                <h2><a href="obituaries-detail.html" title="Obituaries Title">Nimon Deo</a><small class="obituaries-age">(Age 78)</small> <span class="obituaries-meta">( Mar 10, 1930 - Apr 20, 2008 )</span></h2>
-                <p>Faucibus ut purus a condimentumucibus ut purus a lorem sit condimentum. Sed id risus eget sem Phasellus faucibus ut condimlorem ipsum tumsodalesm quissit amet.</p>
-                <a href="obituaries-detail.html" class="btn btn-secondary">Send Condolences</a> </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.obituaries block -->
-        <div class="obituaries-block"><!-- obituaries block -->
-          <div class="well-default">
-            <div class="row">
-              <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
-              <div class="col-md-9">
-                <h2><a href="obituaries-detail.html" title="Obituaries Title">Michel Shefon</a><small class="obituaries-age">(Age 87)</small> <span class="obituaries-meta">( Feb 21, 1928 - June 02, 2015 )</span></h2>
-                <p>CondimentumFaucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim trisus eumsoFaucibus uellus faucibus ut condim tumsodalesm quis.</p>
-                <a href="obituaries-detail.html" class="btn btn-secondary">Send Condolences</a> </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.obituaries block -->
-        <div class="obituaries-block"><!-- obituaries block -->
-          <div class="well-default">
-            <div class="row">
-              <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
-              <div class="col-md-9">
-                <h2><a href="obituaries-detail.html" title="Obituaries Title">Desiree Black</a><small class="obituaries-age">(Age 50)</small> <span class="obituaries-meta">( Oct 20, 1960 - Dec 25, 2010 )</span></h2>
-                <p>Phasellus faucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim tumsodalesmFaucibus ut purus a codime tumsodallorem ipsun.</p>
-                <a href="obituaries-detail.html" class="btn btn-secondary">Send Condolences</a> </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.obituaries block -->
-        <div class="obituaries-block"><!-- obituaries block -->
-          <div class="well-default">
-            <div class="row">
-              <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
-              <div class="col-md-9">
-                <h2><a href="obituaries-detail.html" title="Obituaries Title">Lecton Mison</a><small class="obituaries-age">(Age 60)</small> <span class="obituaries-meta">( Mar 10, 1950 - Apr 08, 2010 )</span></h2>
-                <p>Faucibus ut purus a condimentumucibus ut purus a lorem condimentum. Ss ut condimlorem ipsumlorem ipsum sit maet  tumsodalesm quissit atum.</p>
-                <a href="obituaries-detail.html" class="btn btn-secondary">Send Condolences</a> </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.obituaries block -->
-        <div class="obituaries-block"><!-- obituaries block -->
-          <div class="well-default">
-            <div class="row">
-              <div class="col-md-3 obituaries-img"> <a href="obituaries-detail.html" title="Obituaries Image"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt></a> </div>
-              <div class="col-md-9">
-                <h2><a href="obituaries-detail.html" title="Obituaries Title">Lisa Ray</a><small class="obituaries-age">(Age 43)</small> <span class="obituaries-meta">( March 18, 1968 - June 10, 2011 )</span></h2>
-                <p>Sed id risus eget sem Phasellus faucibus ut condim trisus ibus ut purus a condime id risus eget sem Phasellus faucibus ut condim tumsucibus ut prdim tumsodalesm quis.</p>
-                <a href="obituaries-detail.html" class="btn btn-secondary">Send Condolences</a> </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.obituaries block -->
+        @endforeach
+        {{-- <!-- /.obituaries block -->
         <div class="row">
           <div class="col-md-12 st-pagination"><!-- st pagination -->
             <ul class="pagination">
@@ -240,7 +187,7 @@
             </ul>
           </div>
           <!-- /.st pagination -->
-        </div>
+        </div> --}}
       </div>
       <div class="col-md-4">
 
@@ -248,60 +195,27 @@
           <div class="col-md-12 widget-recent-posts"><!-- widget recent posts -->
             <div class="widget" style="background-color:#f3fcfe;"><!-- widget -->
               <h3 class="widget-title">Recent Obituaries</h3>
-              <div class="row obituaries-post-block">
-                <div class="col-md-3 obituaries-post-img"><!-- recent post img -->
-                  <a href="obituaries-detail.html"><img src="images/icon.jpg" class="img-responsive img-rounded" alt=""></a> </div>
-                <!-- /.recent post img -->
-                <div class="col-md-9">
-                  <div class="obituaries-post-desc"><!-- recent post desc -->
-                    <h3 class="obituaries-post-title"><a href="obituaries-detail.html">Elishabeth Rowe</a></h3>
-                    <span class="obituaries-years">( Sep 18, 1948 - Mar 19, 2013 )</span> </div>
-                  <!-- /.recent post desc -->
-                </div>
-                <!-- /.recent post block -->
-              </div>
-              <div class="row obituaries-post-block">
-                <div class="col-md-3 obituaries-post-img"><!-- recent post img -->
-                  <a href="obituaries-detail.html"><img src="images/icon.jpg" class="img-responsive img-rounded" alt=""></a> </div>
-                <!-- /.recent post img -->
-                <div class="col-md-9">
-                  <div class="obituaries-post-desc"><!-- recent post desc -->
-                    <h3 class="obituaries-post-title"><a href="obituaries-detail.html">Michel Shefon</a></h3>
-                    <span class="obituaries-years">( March 19, 2011 )</span> </div>
-                  <!-- /.recent post desc -->
-                </div>
-                <!-- /.recent post block -->
-              </div>
-              <div class="row obituaries-post-block">
-                <div class="col-md-3 obituaries-post-img">
-                  <div class=""><!-- recent post img -->
+              @php
+                $rbi = \App\obituary::orderBy('created_at', 'desc')->limit(3)->get();
+              @endphp
+              @foreach ($rbi as $r)
+                <div class="row obituaries-post-block">
+                  <div class="col-md-3 obituaries-post-img"><!-- recent post img -->
                     <a href="obituaries-detail.html"><img src="images/icon.jpg" class="img-responsive img-rounded" alt=""></a> </div>
-                </div>
-                <!-- /.recent post img -->
-                <div class="col-md-9">
-                  <div class="obituaries-post-desc"><!-- recent post desc -->
-
-                    <h3 class="obituaries-post-title"><a href="obituaries-detail.html">Nimon Deo</a></h3>
-                    <span class="obituaries-years">( february 25, 2010 )</span> </div>
-                  <!-- /.recent post desc -->
-                </div>
-                <!-- /.recent post block -->
-              </div>
-              <div class="row">
-                <div class="col-md-3 obituaries-post-img">
-                  <div class=""><!-- recent post img -->
-                    <a href="obituaries-detail.html"><img src="images/icon.jpg" class="img-responsive img-rounded" alt=""></a> </div>
-                </div>
-                <!-- /.recent post img -->
-                <div class="col-md-9">
-                  <div class="obituaries-post-desc"><!-- recent post desc -->
-
-                    <h3 class="obituaries-post-title"><a href="obituaries-detail.html">Desiree Black</a></h3>
-                    <span class="obituaries-years">( July 19, 2000 )</span> </div>
-                  <!-- /.recent post desc -->
-                </div>
-                <!-- /.recent post block -->
-              </div>
+                    <!-- /.recent post img -->
+                    @php
+                      $dob = Carbon\Carbon::parse($r->dob);
+                      $dod = Carbon\Carbon::parse($r->dod);
+                    @endphp
+                    <div class="col-md-9">
+                      <div class="obituaries-post-desc"><!-- recent post desc -->
+                        <h3 class="obituaries-post-title"><a href="{{route('obituaries-details',['id'=>$r->id])}}">{{$r->name}}</a></h3>
+                        <span class="obituaries-years">( {{$dob->toFormattedDateString()}} - {{$dod->toFormattedDateString()}} )</span> </div>
+                        <!-- /.recent post desc -->
+                      </div>
+                      <!-- /.recent post block -->
+                    </div>
+              @endforeach
             </div>
           </div>
         </div>
@@ -322,28 +236,27 @@
       <div class="col-md-2 footer-block">
         <h3>Useful links</h3>
         <ul class="listnone">
-          <li><a href="obituaries-listing.html">Obituaries </a></li>
-          <li><a href="history.html">Family History </a></li>
-          <li><a href="staffhistory.html">Staff History </a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="{{route('obituaries-list')}}">Obituaries </a></li>
+          <li><a href="{{route('history')}}">Family History </a></li>
+          <li><a href="{{route('staffHistory')}}">Staff History </a></li>
+          <li><a href="{{route('about')}}">About Us</a></li>
         </ul>
       </div>
       <div class="col-md-2 footer-block">
         <h3>Services</h3>
         <ul class="listnone">
-          <li><a href="traditionalfuneral.html">Full Length Funeral </a></li>
-          <li><a href="directBurials.html">Direct Burials </a></li>
-          <li><a href="directCremation.html">Direct Cremation </a></li>
+          <li><a href="{{route('traditionalFuneral')}}">Full Length Funeral </a></li>
+          <li><a href="{{route('directBurial')}}">Direct Burials </a></li>
+          <li><a href="{{route('directCermation')}}">Direct Cremation </a></li>
         </ul>
       </div>
       <div class="col-md-2 footer-block">
         <h3>Links</h3>
         <ul class="listnone">
-          <li><a href="prePlanning.html">Pre Planning </a></li>
-          <li><a href="griefResources.html">Grief Resources </a></li>
-          <li><a href="error.html">Local Security </a></li>
-          <li><a href="socialSecurity.html">Social Security </a></li>
-          <li><a href="veterans.html"> Veterans </a></li>
+          <li><a href="{{route('prePlan')}}">Pre Planning </a></li>
+          <li><a href="{{route('griefResources')}}">Grief Resources </a></li>
+          <li><a href="{{route('socialSecurity')}}">Social Security </a></li>
+          <li><a href="{{route('veterans')}}"> Veterans </a></li>
         </ul>
       </div>
       <div class="col-md-3 footer-block footer-contact">

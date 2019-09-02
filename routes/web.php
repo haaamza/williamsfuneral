@@ -99,7 +99,8 @@ Route::get('/merchandise',function(){
 })->name('merch');
 
 Route::get('/obituraies',function(){
-  return view('obituaries.list');
+  $obi = \App\obituary::orderBy('created_at','desc')->get();
+  return view('obituaries.list', compact('obi'));
 })->name('obituaries-list');
 
 Route::get('/obituries/{id}','ObituriesController@details')->name('obituaries-details');
@@ -108,7 +109,8 @@ Route::post('/obituaries/condolence/create', 'ObituriesController@createCondolen
 
 //florist
 Route::get('/sendFlowers',function(){
-  return view('florist.list');
+  $flo = \App\Florist::all();
+  return view('florist.list', compact('flo'));
 })->name('florist-list');
 
 Auth::routes();
@@ -121,13 +123,21 @@ Route::group(['middleware' =>'auth'], function () {
   Route::get('/admin/obituries/add',function(){
     return view('auth.obituries.add');
   })->name('addobituaries');
+  Route::get('/admin/florist/add',function(){
+    return view('auth.florist.add');
+  })->name('addFlorist');
 
   Route::delete('/admin/obituaries/delete/{id}','AdminController@deleteObituary')->name('obituaryDestroy');
 
   Route::get('/admin/obituries/edit/{id}','AdminController@editObituary')->name('editObi');
   Route::post('/admin/obituries/update/{id}','AdminController@updateObituary')->name('updateObituary');
   Route::post('/admin/obituries/add','AdminController@storeObituary')->name('storeObituary');
+  Route::post('/admin/florist/add','AdminController@storeFlorist')->name('storeFlorist');
 
   Route::get('/admin/florist','AdminController@floristIndex')->name('florist-index');
+
+  Route::get('/admin/florist/edit/{id}','AdminController@editFlorist')->name('editFlorist');
+  Route::post('/admin/florist/update/{id}','AdminController@updateFlorist')->name('updateFlorist');
+  Route::delete('/admin/florist/delete/{id}','AdminController@deleteFlorist')->name('floristDestroy');
 
 });

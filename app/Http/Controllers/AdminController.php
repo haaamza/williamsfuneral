@@ -20,6 +20,12 @@ class AdminController extends Controller
       return view('auth.obituries.edit', \compact('obi'));
     }
 
+    public function editFlorist(Request $request, $id)
+    {
+      $flo = Florist::find($id);
+      return view('auth.florist.edit', \compact('flo'));
+    }
+
     public function updateObituary(Request $request, $id)
     {
       $obi = obituary::find($id);
@@ -35,10 +41,28 @@ class AdminController extends Controller
 
       return \redirect(route('dashboard'));
     }
+    public function updateFlorist(Request $request, $id)
+    {
+      $obi = Florist::find($id);
+
+      $obi->name = $request['name'];
+      $obi->number = $request['number'];
+      $obi->address = $request['address'];
+      $obi->url = $request['url'];
+      $obi->save();
+
+      return \redirect(route('florist-index'));
+    }
 
     public function deleteObituary(Request $request, $id)
     {
         $obi = obituary::find($id);
+        $obi->delete();
+        return \redirect()->back();
+    }
+    public function deleteFlorist(Request $request, $id)
+    {
+        $obi = Florist::find($id);
         $obi->delete();
         return \redirect()->back();
     }
@@ -49,12 +73,19 @@ class AdminController extends Controller
       $obi->save();
       return \redirect(route('dashboard'));
     }
+    public function storeFlorist(Request $request)
+    {
+      $obi = Florist::create($request->all());
+      $obi->save();
+      return \redirect(route('florist-index'));
+    }
 
 
 
 
     public function floristIndex()
     {
-
+      $flo = Florist::all();
+      return view('auth.florist.index',\compact('flo'));
     }
 }

@@ -12,13 +12,13 @@
   <title>Admin - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
-  <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../css/sb-admin.css" rel="stylesheet">
+  <link href="../../../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -73,62 +73,47 @@
           </form>
       </li>
     </ul>
-
     <div id="content-wrapper">
 
       <div class="container-fluid">
 
 
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-          Obituaries</div>
-          <div class="card-body">
-            <div class="table-responsive">
+        <h1 style="text-align:center;margin-bottom:30px;">Edit Florists</h1>
 
-                  <table class="table table-bordered" id="dataTable"  cellspacing="0">
-                    <thead>
-                      @php
-                        $i = 1;
-                      @endphp
-                      <tr>
-                        <th>Sr #</th>
-                        <th>Name</th>
-                        <th>State</th>
-                        <th>City</th>
-                        <th>Date Of Birth</th>
-                        <th>Date Of Death</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach ($obi as $o)
-                        <tr>
-                            <td>{{$i++}}</td>
-                            <td>{{$o->name}}</td>
-                            <td>{{$o->state}}</td>
-                            <td>{{$o->city}}</td>
-                            <td>{{$o->dob}}</td>
-                            <td>{{$o->dod}}</td>
-                            <td>
-                              <form action="{{route('obituaryDestroy', $o->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</button>
-                              </form>
-                            </td>
-                            <td><a class="btn btn-primary" href="{{route('editObi',['id'=>$o->id])}}" role="button">Edit</a>
-                          </tr>
-                      @endforeach
 
-                    </tbody>
+        <form method="post" action="{{route('updateFlorist', ['id'=>$flo->id])}}">
+          @csrf
+         <div class="form-row">
 
-                  </table>
-            </div>
-          </div>
-        </div>
+           <div class="col-md-12 mb-3">
+             <label for="validationDefault01">Florist Name</label>
+             <input type="text" class="form-control" id="validationDefault01" placeholder="Name" value="{{$flo->name}}" name="name" required>
+           </div>
+
+         </div>
+
+         <div class="form-row">
+           <div class="col-md-12 mb-3">
+             <label for="validationDefaultAddress">Address</label>
+             <div class="input-group">
+
+               <input type="address" class="form-control" id="validationDefaultAddress" placeholder="Florist Address..." name="address" value="{{$flo->address}}"aria-describedby="inputGroupPrepend2" required>
+             </div>
+           </div>
+         </div>
+         <div class="form-row">
+           <div class="col-md-6 mb-3">
+             <label for="validationDefault01">Number</label>
+             <input type="text" class="form-control" id="validationDefault01" placeholder="Enter Number..." value="{{$flo->number}}" name="number" required>
+           </div>
+           <div class="col-md-6 mb-3">
+             <label for="validationDefault03">Website URL</label>
+             <input type="text" class="form-control" id="validationDefault03" placeholder="Enter url..." value="{{$flo->url}}" name="url"required>
+           </div>
+         </div>
+
+           <button class="btn btn-primary" type="submit">Update Information</button>
+         </form>
 
       </div>
 
@@ -164,23 +149,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-
-  <script src="../vendor/datatables/jquery.dataTables.js"></script>
-  <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="../../../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../../../vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../js/sb-admin.min.js"></script>
+  <script src="../../../js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="../js/demo/datatables-demo.js"></script>
-
+  <script src="../../../js/demo/datatables-demo.js"></script>
 
 </body>
 

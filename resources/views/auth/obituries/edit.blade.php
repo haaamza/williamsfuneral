@@ -43,33 +43,34 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Obituaries</span>
         </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="{{route('dashboard')}}">Obituaries</a>
+          <a class="dropdown-item" href="{{route('addobituaries')}}">Add obituary</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Florists</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+          <a class="dropdown-item" href="{{route('florist-index')}}">Florists</a>
+          <a class="dropdown-item" href="{{route('addFlorist')}}">Add Florists</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="crud.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Add Obituaries</span></a>
-      </li>
 
 
       <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-user"></i><span> Logout</span></a>
+        <a class="nav-link" href="{{route('logout')}}" data-toggle="modal" data-target="#logoutModal" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();"><i class="fas fa-fw fa-user"></i><span> Logout</span></a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
       </li>
     </ul>
 

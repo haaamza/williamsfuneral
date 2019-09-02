@@ -148,65 +148,22 @@
             <div class="quote-block"><!-- quote block -->
               <h3 class="quote-title">Local Florists</h3>
               <p style="text-align:center;">We believe in sending love to the lost ones. For convenience, we created a list of florists that serve our local area</p>
-              <blockquote class="background-quote well-default3">
-                <div class="row">
-                  <div class="col-md-6" >
-                    <p class="author-quote" style="font-weight:bold;">Allen's Florist</p>
-                    <p class="author-quote" style="font-size:16px;">1092 Coffeen Street Watertown, New York 13601</p>
+              @foreach ($flo as $f)
+                <blockquote class="background-quote well-default3">
+                  <div class="row">
+                    <div class="col-md-6" >
+                      <p class="author-quote" style="font-weight:bold;">{{$f->name}}</p>
+                      <p class="author-quote" style="font-size:16px;">{{$f->address}}</p>
+                    </div>
+                    <div class="col-md-6">
+                      <ul class="listnone" style="float:right;">
+                        <li><i class="fa fa-phone" style="margin-right:10px;"></i>{{$f->number}}</li>
+                        <li><i class="fa fa-envelope" style="margin-right:10px;"></i><a href="https://{!!$f->url!!}" style="text-decoration:underline;cursor:pointer;">Website Link</a></li>
+                      </ul>
+                    </div>
                   </div>
-                  <div class="col-md-6">
-                    <ul class="listnone" style="float:right;">
-                      <li><i class="fa fa-phone" style="margin-right:10px;"></i>1800-123-4567 /6789</li>
-                      <li><i class="fa fa-envelope" style="margin-right:10px;"></i><a href="http://www.williamsfuneralhomeinc.com/index.php" style="text-decoration:underline;cursor:pointer;">Website Link</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </blockquote>
-
-              <blockquote class="background-quote well-default3">
-                <div class="row">
-                  <div class="col-md-6" >
-                    <p class="author-quote" style="font-weight:bold;">Allen's Florist</p>
-                    <p class="author-quote" style="font-size:16px;">1092 Coffeen Street Watertown, New York 13601</p>
-                  </div>
-                  <div class="col-md-6">
-                    <ul class="listnone" style="float:right;">
-                      <li><i class="fa fa-phone" style="margin-right:10px;"></i>1800-123-4567 /6789</li>
-                      <li><i class="fa fa-envelope" style="margin-right:10px;"></i><a href="http://www.williamsfuneralhomeinc.com/index.php" style="text-decoration:underline;cursor:pointer;">Website Link</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </blockquote>
-
-              <blockquote class="background-quote well-default3">
-                <div class="row">
-                  <div class="col-md-6" >
-                    <p class="author-quote" style="font-weight:bold;">Allen's Florist</p>
-                    <p class="author-quote" style="font-size:16px;">1092 Coffeen Street Watertown, New York 13601</p>
-                  </div>
-                  <div class="col-md-6">
-                    <ul class="listnone" style="float:right;">
-                      <li><i class="fa fa-phone" style="margin-right:10px;"></i>1800-123-4567 /6789</li>
-                      <li><i class="fa fa-envelope" style="margin-right:10px;"></i><a href="http://www.williamsfuneralhomeinc.com/index.php" style="text-decoration:underline;cursor:pointer;">Website Link</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </blockquote>
-
-              <blockquote class="background-quote well-default3">
-                <div class="row">
-                  <div class="col-md-6" >
-                    <p class="author-quote" style="font-weight:bold;">Allen's Florist</p>
-                    <p class="author-quote" style="font-size:16px;">1092 Coffeen Street Watertown, New York 13601</p>
-                  </div>
-                  <div class="col-md-6">
-                    <ul class="listnone" style="float:right;">
-                      <li><i class="fa fa-phone" style="margin-right:10px;"></i>1800-123-4567 /6789</li>
-                      <li><i class="fa fa-envelope" style="margin-right:10px;"></i><a href="http://www.williamsfuneralhomeinc.com/index.php" style="text-decoration:underline;cursor:pointer;">Website Link</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </blockquote>
+                </blockquote>
+              @endforeach
             </div>
             <!-- /.quote block -->
           </div>
@@ -230,28 +187,27 @@
       <div class="col-md-2 footer-block">
         <h3>Useful links</h3>
         <ul class="listnone">
-          <li><a href="obituaries-listing.html">Obituaries </a></li>
-          <li><a href="history.html">Family History </a></li>
-          <li><a href="staffhistory.html">Staff History </a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="{{route('obituaries-list')}}">Obituaries </a></li>
+          <li><a href="{{route('history')}}">Family History </a></li>
+          <li><a href="{{route('staffHistory')}}">Staff History </a></li>
+          <li><a href="{{route('about')}}">About Us</a></li>
         </ul>
       </div>
       <div class="col-md-2 footer-block">
         <h3>Services</h3>
         <ul class="listnone">
-          <li><a href="traditionalfuneral.html">Full Length Funeral </a></li>
-          <li><a href="directBurials.html">Direct Burials </a></li>
-          <li><a href="directCremation.html">Direct Cremation </a></li>
+          <li><a href="{{route('traditionalFuneral')}}">Full Length Funeral </a></li>
+          <li><a href="{{route('directBurial')}}">Direct Burials </a></li>
+          <li><a href="{{route('directCermation')}}">Direct Cremation </a></li>
         </ul>
       </div>
       <div class="col-md-2 footer-block">
         <h3>Links</h3>
         <ul class="listnone">
-          <li><a href="prePlanning.html">Pre Planning </a></li>
-          <li><a href="griefResources.html">Grief Resources </a></li>
-          <li><a href="error.html">Local Security </a></li>
-          <li><a href="socialSecurity.html">Social Security </a></li>
-          <li><a href="veterans.html"> Veterans </a></li>
+          <li><a href="{{route('prePlan')}}">Pre Planning </a></li>
+          <li><a href="{{route('griefResources')}}">Grief Resources </a></li>
+          <li><a href="{{route('socialSecurity')}}">Social Security </a></li>
+          <li><a href="{{route('veterans')}}"> Veterans </a></li>
         </ul>
       </div>
       <div class="col-md-3 footer-block footer-contact">

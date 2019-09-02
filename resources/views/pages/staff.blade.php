@@ -32,7 +32,7 @@
           <p class="welcome-msg">Welcome to Williams Funeral Home</p>
         </div>
         <div class="col-md-6">
-          <p class="navbar-text navbar-right"> <a href="location.html" class="location-link"><i class="fa fa-map-marker"></i>View Location</a> <span class="call-number"><i class="fa fa-phone"></i>803-773-6422 </span></p>
+          <p class="navbar-text navbar-right"> <a href="{{route('location')}}" class="location-link"><i class="fa fa-map-marker"></i>View Location</a> <span class="call-number"><i class="fa fa-phone"></i>803-773-6422 </span></p>
         </div>
       </div>
     </div>
@@ -45,59 +45,59 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-            <a class="navbar-brand" href="index.html"><h2>Established 1945</h2></a> </div>
+            <a class="navbar-brand" href="{{route('home')}}"><h2>Established 1945</h2></a> </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="main-navigation">
             <ul class="nav navbar-nav navbar-right">
-              <li> <a href="index.html" title="Homepage">Home</a></li>
+              <li> <a href="{{route('home')}}" title="Homepage">Home</a></li>
 
-              <li> <a href="about.html">About us <span class="fa fa-angle-down"></span></a>
+              <li> <a href="#">About us <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="about.html" title="About us">About Funeral</a></li>
-                  <li><a href="staffhistory.html" title="Staff history">Staff History</a></li>
-                  <li><a href="history.html" title="Family history">Family History</a></li>
+                  <li><a href="{{route('about')}}" title="About us">About Funeral</a></li>
+                  <li><a href="{{route('staffHistory')}}" title="Staff history">Staff History</a></li>
+                  <li><a href="{{route('history')}}" title="Family history">Family History</a></li>
                 </ul>
               </li>
 
-              <li> <a href="service.html">Services <span class="fa fa-angle-down"></span></a>
+              <li> <a href="{{route('services')}}">Services <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="traditionalfuneral.html" title="Traditional Funeral">Traditional Funeral</a></li>
-                  <li><a href="directBurials.html" title="Direct Burials">Direct Burials</a></li>
-                  <li><a href="directCremation.html" title="Direct Cremation">Direct Cremation</a></li>
+                  <li><a href="{{route('traditionalFuneral')}}" title="Traditional Funeral">Traditional Funeral</a></li>
+                  <li><a href="{{route('directBurial')}}" title="Direct Burials">Direct Burials</a></li>
+                  <li><a href="{{route('directCermation')}}" title="Direct Cremation">Direct Cremation</a></li>
                 </ul>
               </li>
 
-              <li> <a href="faqs.html" title="Frequently Asked Questions">FAQS</a></li>
+              <li> <a href="{{route('faqs')}}" title="Frequently Asked Questions">FAQS</a></li>
 
-              <li> <a href="links.html">Links <span class="fa fa-angle-down"></span></a>
+              <li> <a href="{{route('links')}}">Links <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="prePlanning.html" title="About Pre Planning">About Pre Planning</a></li>
-                  <li><a href="griefResources.html" title="Grief Resources">Grief Resources</a></li>
-                  <li><a href="error.html" title="Local Information">Local Information</a></li>
-                  <li><a href="socialSecurity.html" title="Social Security Benefits">Social Security Benefits</a></li>
-                  <li><a href="veterans.html" title="Veterans Benefits">Veterans Benefits</a></li>
+                  <li><a href="{{route('prePlan')}}l" title="About Pre Planning">About Pre Planning</a></li>
+                  <li><a href="{{route('griefResources')}}" title="Grief Resources">Grief Resources</a></li>
+                  <li><a href="{{route('error')}}" title="Local Information">Local Information</a></li>
+                  <li><a href="{{route('socialSecurity')}}" title="Social Security Benefits">Social Security Benefits</a></li>
+                  <li><a href="{{route('veterans')}}" title="Veterans Benefits">Veterans Benefits</a></li>
                 </ul>
               </li>
 
               <li> <a href="#">Online <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="createAlbum.html" title="Online Albums">Online Albums</a></li>
-                  <li><a href="merch.html" title="Merchandise">Merchandise</a></li>
-                  <li><a href="preForm.html" title="Pre Planning Form">Pre Planning Form</a></li>
+                  <li><a href="{{route('albums')}}" title="Online Albums">Online Albums</a></li>
+                  <li><a href="{{route('merch')}}" title="Merchandise">Merchandise</a></li>
+                  <li><a href="{{route('prePlaning')}}" title="Pre Planning Form">Pre Planning Form</a></li>
                 </ul>
               </li>
 
-              <li> <a href="obituaries-listing.html" title="Obituaries">Obituaries </a></li>
+              <li> <a href="{{route('obituaries-list')}}" title="Obituaries">Obituaries </a></li>
 
-              <li> <a href="sendFlowers.html" title="Send Flowers">Send Flowers </a></li>
+              <li> <a href="{{route('florist-list')}}" title="Send Flowers">Send Flowers </a></li>
 
               <!-- <li> <a href="location.html" title="Directions">Directions</a></li> -->
 
               <li><a href="#" title="Contact">Contact <span class="fa fa-angle-down"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="contact-us.html" title="Contact Us">Contact Us</a></li>
-                  <li><a href="location.html" title="Directions">Directions</a></li>
+                  <li><a href="{{route('contact')}}" title="Contact Us">Contact Us</a></li>
+                  <li><a href="{{route('location')}}" title="Directions">Directions</a></li>
                 </ul>
               </li>
 
@@ -145,9 +145,9 @@
           <div class="col-md-12">
             <div class="sidenav widget">
               <ul class="nav nav-stacked listnone angle-right">
-                <li><a href="about.html" title="About">About</a></li>
-                <li ><a href="history.html" title="Funeral History">Family History</a></li>
-                <li class="active"><a href="staffhistory.html" title="Staff History">Staff History</a></li>
+                <li><a href="{{route('about')}}" title="About">About</a></li>
+                <li ><a href="{{route('history')}}" title="Funeral History">Family History</a></li>
+                <li class="active"><a href="{{route('staffHistory')}}" title="Staff History">Staff History</a></li>
               </ul>
             </div>
           </div>
@@ -171,7 +171,7 @@
           <div class="row">
             <div class="col-md-4 feature-block"><!-- feature block -->
               <div class="feature-icon"><!-- feature icon -->
-                <img src="images/feature-icon1.png" class="img-responsive" alt> </div>
+                <img src="../../images/feature-icon1.png" class="img-responsive" alt> </div>
               <!-- /.feature icon -->
               <h3 style="color:#1a4b5d;">Respect &amp; Integrity</h3>
               <p>We are committed to never compromising on the respect, dignity and professionalism.</p>
@@ -239,28 +239,27 @@ of service excellence and professionalism,</p>
       <div class="col-md-2 footer-block">
         <h3>Useful links</h3>
         <ul class="listnone">
-          <li><a href="obituaries-listing.html">Obituaries </a></li>
-          <li><a href="history.html">Family History </a></li>
-          <li><a href="staffhistory.html">Staff History </a></li>
-          <li><a href="about.html">About Us</a></li>
+          <li><a href="{{route('obituaries-list')}}">Obituaries </a></li>
+          <li><a href="{{route('history')}}">Family History </a></li>
+          <li><a href="{{route('staffHistory')}}">Staff History </a></li>
+          <li><a href="{{route('about')}}">About Us</a></li>
         </ul>
       </div>
       <div class="col-md-2 footer-block">
         <h3>Services</h3>
         <ul class="listnone">
-          <li><a href="traditionalfuneral.html">Full Length Funeral </a></li>
-          <li><a href="directBurials.html">Direct Burials </a></li>
-          <li><a href="directCremation.html">Direct Cremation </a></li>
+          <li><a href="{{route('traditionalFuneral')}}">Full Length Funeral </a></li>
+          <li><a href="{{route('directBurial')}}">Direct Burials </a></li>
+          <li><a href="{{route('directCermation')}}">Direct Cremation </a></li>
         </ul>
       </div>
       <div class="col-md-2 footer-block">
         <h3>Links</h3>
         <ul class="listnone">
-          <li><a href="prePlanning.html">Pre Planning </a></li>
-          <li><a href="griefResources.html">Grief Resources </a></li>
-          <li><a href="error.html">Local Security </a></li>
-          <li><a href="socialSecurity.html">Social Security </a></li>
-          <li><a href="veterans.html"> Veterans </a></li>
+          <li><a href="{{route('prePlan')}}">Pre Planning </a></li>
+          <li><a href="{{route('griefResources')}}">Grief Resources </a></li>
+          <li><a href="{{route('socialSecurity')}}">Social Security </a></li>
+          <li><a href="{{route('veterans')}}"> Veterans </a></li>
         </ul>
       </div>
       <div class="col-md-3 footer-block footer-contact">

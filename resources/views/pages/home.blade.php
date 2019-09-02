@@ -91,7 +91,7 @@
 
             <li> <a href="{{route('faqs')}}" title="Frequently Asked Questions">FAQS</a></li>
 
-            <li> <a href="{{route('faqs')}}">Links <span class="fa fa-angle-down"></span></a>
+            <li> <a href="{{route('links')}}">Links <span class="fa fa-angle-down"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="{{route('prePlan')}}l" title="About Pre Planning">About Pre Planning</a></li>
                 <li><a href="{{route('griefResources')}}" title="Grief Resources">Grief Resources</a></li>

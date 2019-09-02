@@ -12,13 +12,13 @@
   <title>Admin - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="../../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -43,42 +43,34 @@
 
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-user"></i>
+          <span>Obituaries</span>
         </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="{{route('dashboard')}}">Obituaries</a>
+          <a class="dropdown-item" href="{{route('addobituaries')}}">Add obituary</a>
+        </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="crud.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Add Obituaries</span></a>
-        </li>
-      <li class="nav-item dropdown active">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Florists</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="florist.html">Florists</a>
-          <a class="dropdown-item" href="add_florist.html">Add Florists</a>
+          <a class="dropdown-item" href="{{route('florist-index')}}">Florists</a>
+          <a class="dropdown-item" href="{{route('addFlorist')}}">Add Florists</a>
         </div>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-        </div>
-      </li>
+
       <li class="nav-item">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-user"></i><span> Logout</span></a>
+        <a class="nav-link" href="{{route('logout')}}" data-toggle="modal" data-target="#logoutModal" onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();"><i class="fas fa-fw fa-user"></i><span> Logout</span></a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
       </li>
     </ul>
 
@@ -97,39 +89,36 @@
                   <table class="table table-bordered" id="dataTable"  cellspacing="0">
                     <thead>
                       <tr>
-                        <th>Edit</th>
-                        <th>Delete</th>
                         <th>Florist Name</th>
                         <th>Address</th>
                         <th>Contact Number</th>
                         <th>Website URL</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td><a class="btn btn-primary" href="edit_florist.html" role="button">Edit</a></td>
-                        <td><button class="btn btn-danger" type="submit">Delete</button></td>
-                        <td>Tigher Doe Florist</td>
-                        <td>821 N Main St Sumter, SC 29150</td>
-                        <td>414-882-363</td>
-                        <td>www.xyz.com</td>
-                      </tr>
-
-                      <tr>
-                        <td><a class="btn btn-primary" href="edit_florist.html" role="button">Edit</a></td>
-                        <td><button class="btn btn-danger" type="submit">Delete</button></td>
-                        <td>Tigher Doe Florist</td>
-                        <td>821 N Main St Sumter, SC 29150</td>
-                        <td>414-882-363</td>
-                        <td>www.xyz.com</td>
-                      </tr>
-
+                      @foreach ($flo as $f)
+                        <tr>
+                          <td>{{$f->name}}</td>
+                          <td>{{$f->address}}</td>
+                          <td>{{$f->number}}</td>
+                          <td>{{$f->url}}</td>
+                          <td><a class="btn btn-primary" href="{{route('editFlorist',['id'=>$f->id])}}" role="button">Edit</a></td>
+                          <td>
+                            <form action="{{route('floristDestroy', $f->id)}}" method="post">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                          </td>
+                        </tr>
+                      @endforeach
                     </tbody>
 
                   </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
       </div>
@@ -166,22 +155,22 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
 
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="../../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin.min.js"></script>
+  <script src="../../js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
+  <script src="../../js/demo/datatables-demo.js"></script>
 
 
 
