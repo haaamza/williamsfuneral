@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableObituaries extends Migration
+class CreateCondolencesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateTableObituaries extends Migration
      */
     public function up()
     {
-        Schema::create('obituaries', function (Blueprint $table) {
+        Schema::create('condolences', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('dob');
-            $table->date('dod');
-            $table->string('profile_image')->nullable();
-            $table->longText('description');
-            $table->string('city');
             $table->string('name');
-            $table->string('state');
-            $table->string('zip');
+            $table->string('email');
+            $table->longText('condolence');
+            $table->integer('obituaries_id')->unsigned();
+            $table->foreign('obituaries_id')
+              ->references('id')->on('obituaries')
+              ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateTableObituaries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('obituaries');
+        Schema::dropIfExists('condolences');
     }
 }

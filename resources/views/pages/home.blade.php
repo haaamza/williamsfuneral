@@ -230,58 +230,26 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 obituaries-block">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="obituaries-block-img zoom-pic"> <a href="{{route('obituaries-list')}}"><img src="images/icon.jpg" alt="" class="img-responsive"></a> </div>
-          </div>
-          <div class="col-md-8 obituaries-block-text">
-            <h3 class="obituaries-title"><a href="{{route('obituaries-list')}}">Elishabeth Rowe</a><small>(Age 78)</small></h3>
-            <p class="obituaries-meta">Sep 18, 1948 - Mar 19, 2013</p>
-            <p>Phasellus faucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim tumsodalesm quis.</p>
-            <div class="just-border"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 obituaries-block">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="obituaries-block-img zoom-pic"> <a href="obituaries-listing.html"><img src="images/icon.jpg" alt="" class="img-responsive"></a> </div>
-          </div>
-          <div class="col-md-8 obituaries-block-text">
-            <h3 class="obituaries-title"><a href="obituaries-listing.html">Nimon Deo</a><small>(Age 65)</small></h3>
-            <p class="obituaries-meta">(Mar 10, 1930 - Apr 20, 2008)</p>
-            <p>Phasellus faucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim tumsodalesm quis.</p>
-            <div class="just-border"></div>
+      @foreach ($obis as $o)
+        <div class="col-md-6 obituaries-block">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="obituaries-block-img zoom-pic"> <a href="{{route('obituaries-details',['id'=>$o->id])}}"><img src="images/icon.jpg" alt="" class="img-responsive"></a> </div>
+            </div>
+            <div class="col-md-8 obituaries-block-text">
+              @php
+                $dod = Carbon\Carbon::parse($o->dod);
+                $dob = Carbon\Carbon::parse($o->dob);
+                $diff = $dod->diffInYears($dob);
+              @endphp
+              <h3 class=" obituaries-title"><a href="{{route('obituaries-details',['id'=>$o->id])}}">{{$o->name}}</a><small>(Age {{$diff}})</small></h3>
+              <p class="obituaries-meta">{{$dob->toFormattedDateString()}} - {{$dod->toFormattedDateString()}}</p>
+              <p>{{$o->description}}</p>
+              <div class="just-border"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 obituaries-block">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="obituaries-block-img zoom-pic"> <a href="obituaries-listing.html"><img src="images/icon.jpg" alt="" class="img-responsive"></a> </div>
-          </div>
-          <div class="col-md-8 obituaries-block-text">
-            <h3 class="obituaries-title"><a href="obituaries-listing.html">Michel Shefon</a><small>(Age 60)</small></h3>
-            <p class="obituaries-meta">(Feb 21, 1928 - June 02, 2015)</p>
-            <p>CondimentumFaucibus ut purus a condimentum Sed id risus eget sem Phasellus faucibus ut condim trisus egeumsodales.</p>
-            <div class="just-border"></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 obituaries-block">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="obituaries-block-img zoom-pic"> <a href="obituaries-listing.html"><img src="images/icon.jpg" alt="" class="img-responsive"></a> </div>
-          </div>
-          <div class="col-md-8 obituaries-block-text">
-            <h3 class="obituaries-title"><a href="obituaries-listing.html">Desiree Black</a><small>(Age 68)</small></h3>
-            <p class="obituaries-meta">(Oct 20, 1960 - Dec 25, 2010)</p>
-            <p>Phasellus faucibus ut purus a condimentum. Sed id risus eget sem Phasellus faucibus ut condim tumsodalesm quis.</p>
-            <div class="just-border"></div>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </div>

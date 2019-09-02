@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Funeral -  Responsive Niche HTMl Template</title>
+<title>Obituaries - {{$ob->name}}</title>
 
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
-<link href="css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/index.css" rel="stylesheet">
+<link href="../../css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,100italic,100,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <!-- Font awesome icon -->
@@ -131,9 +131,9 @@
     <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb">
-          <li><a href="index.html" title="Home">Home</a></li>
-          <li><a href="obituaries-listing.html" title="Obituaries">Obituaries</a></li>
-          <li class="active">Elishabeth Rowe</li>
+          <li><a href="{{route('home')}}" title="Home">Home</a></li>
+          <li><a href="{{route('obituaries-list')}}" title="Obituaries">Obituaries</a></li>
+          <li class="active">{{$ob->name}}</li>
         </ol>
       </div>
     </div>
@@ -148,36 +148,33 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <div class="obituaries-img"><img src="images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt=""></div>
+        <div class="obituaries-img"><img src="../images/icon.jpg" style="border:1px solid #1a4b5d;" class="img-responsive img-rounded" alt=""></div>
         <div class="row">
-          <div class="col-md-12"> <a href="sendFlowers.html" class="btn btn-block btn-send"><img src="images/flower-icon-white.png" alt=""> Send flowers</a> </div>
+          <div class="col-md-12"> <a href="sendFlowers.html" class="btn btn-block btn-send"><img src="../images/flower-icon-white.png" alt=""> Send flowers</a> </div>
         </div>
       </div>
       <div class="col-md-8">
         <div class="obituaries-block">
           <div class="row">
             <div class="col-md-12">
-              <p>Elishabeth Rowe, a devoted mother, sister, grandmother, aunt and friend to so many passed away peacefully at her home in funeral caring home on Tuesday, March 19, 2013. Elishabeth Rowe was born on September 18, 1948 in Newyork.</p>
-              <p>Nam et mi nisl. Curabitur vel tellus ut quam bibendum varius. Sed tincidunt blandit turpis vitae vulputate. Ut sit amet tortor da odio. Proin sagittis finibus erat, vel blandit diam facilisis eget. Phasellus volutpat tellus sed arcu ullamcorper pretium vel nec neque.</p>
-              <p>Cras hendrerit, eros id iaculis aliquam, erat nulla convallis justo, ut lobortis orci urna ac diam. Aenean felis leo, feu leo. Vivamus ultricies dolor ac est porttitor laoreet. Vestibulum vitae diam in urna malesuada condimentum ut vitae muam rutrum non nunc non consequat. </p>
+              <p>{{$ob->description}}</p>
             </div>
             <div class="col-md-12">
               <h2 style="color:#1a4b5d;">Condolence Messages</h2>
-              <div class="well-default">
-                <h3>Nishant Walia</h3>
-                <span class="comment-date">January 2, 2016 at 12:56 pm</span>
-                <p>Cras hendrerit, eros id iaculis aliquam, erat nulla convallis justo, ut lobortis orci urna ac diam. Aenean felis leo, feugiat ac eff lalum vitae diam in ualeimentum ut vitaeuam rutrum non nunc non consequat. </p>
-              </div>
-              <div class="well-default">
-                <h3>Nishant Walia</h3>
-                <span class="comment-date">January 2, 2016 at 12:56 pm</span>
-                <p>Cras hendrerit, eros id iaculis aliquam, erat nulla convallis justo, ut lobortis orci urna ac diam. Aenean felis leo, feugiat ac eff lalum vitae diam in ualeimentum ut vitaeuam rutrum non nunc non consequat. </p>
-              </div>
+              @foreach ($ob->Condolences as $c)
+                <div class="well-default">
+                  <h3>{{$c->name}}</h3>
+                  <span class="comment-date">{{$c->created_at->toDayDateTimeString()}}</span>
+                  <p>Cras hendrerit, eros id iaculis aliquam, erat nulla convallis justo, ut lobortis orci urna ac diam. Aenean felis leo, feugiat ac eff lalum vitae diam in ualeimentum ut vitaeuam rutrum non nunc non consequat. </p>
+                </div>
+              @endforeach
               <h2 style="color:#1a4b5d;">Leave Your Condolence</h2>
               <p>Please share your message of condolence with the family, It will be visible to the public but your email address will not be published.</p>
               <div class="row">
-                <form class="form">
+                <form class="form" method="post" action="{{route('createCondolence')}}">
+                  @csrf
                   <!-- Textarea -->
+                  <input type="hidden" name="id" value="{{$ob->id}}">
                   <div class="form-group col-md-12">
                     <label class="control-label" for="textarea">Condolence</label>
                     <textarea class="form-control" id="textarea" name="textarea"></textarea>
@@ -191,7 +188,7 @@
                   <div class="form-group col-md-6"><span class="required pull-right">*Required Field</span>
                     <label class="control-label" for="e-mail">E-mail</label>
                     <span class="required">*</span>
-                    <input id="e-mail" name="e-mail" type="text" placeholder="" class="form-control input-md" required>
+                    <input id="e-mail" name="email" type="text" placeholder="" class="form-control input-md" required>
                   </div>
                   <!-- Text input-->
                   <div class="col-md-4">
@@ -273,14 +270,14 @@
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.sticky.js"></script>
-<script src="js/search.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/sticky-header.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.sticky.js"></script>
+<script src="../js/search.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/sticky-header.js"></script>
 <!-- jQuery -->
-<script type="text/javascript" src="js/jquery.smartmenus.min.js"></script>
+<script type="text/javascript" src="../js/jquery.smartmenus.min.js"></script>
 
 <!-- SmartMenus jQuery plugin -->
-<script type="text/javascript" src="js/jquery.smartmenus.bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.smartmenus.bootstrap.min.js"></script>
 </body>
 </html>

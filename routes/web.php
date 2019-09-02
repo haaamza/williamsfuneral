@@ -51,9 +51,7 @@ Route::get('/history',function(){
   return view('pages.history');
 })->name('history');
 
-Route::get('/home',function(){
-  return view('pages.home');
-})->name('home');
+Route::get('/home','MainController@index')->name('home');
 
 Route::get('/links',function(){
   return view('pages.links');
@@ -104,6 +102,10 @@ Route::get('/obituraies',function(){
   return view('obituaries.list');
 })->name('obituaries-list');
 
+Route::get('/obituries/{id}','ObituriesController@details')->name('obituaries-details');
+
+Route::post('/obituaries/condolence/create', 'ObituriesController@createCondolence')->name('createCondolence');
+
 //florist
 Route::get('/sendFlowers',function(){
   return view('florist.list');
@@ -113,15 +115,19 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 //admin Routes
+Route::group(['middleware' =>'auth'], function () {
+  Route::get('/admin/dashboard','AdminController@dashboard')->name('dashboard');
 
-Route::get('/admin/dashboard',function(){
-  return view('auth.dashboard');
-});
+  Route::get('/admin/obituries/add',function(){
+    return view('auth.obituries.add');
+  })->name('addobituaries');
 
-Route::get('/admin/obituries/add',function(){
-  return view('auth.obituries.add');
-});
+  Route::delete('/admin/obituaries/delete/{id}','AdminController@deleteObituary')->name('obituaryDestroy');
 
-Route::get('/admin/obituries/edit',function(){
-  return view('auth.obituries.edit');
+  Route::get('/admin/obituries/edit/{id}','AdminController@editObituary')->name('editObi');
+  Route::post('/admin/obituries/update/{id}','AdminController@updateObituary')->name('updateObituary');
+  Route::post('/admin/obituries/add','AdminController@storeObituary')->name('storeObituary');
+
+  Route::get('/admin/florist','AdminController@floristIndex')->name('florist-index');
+
 });

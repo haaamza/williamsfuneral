@@ -81,59 +81,55 @@
         <h1 style="text-align:center;margin-bottom:30px;">Add Obituaries</h1>
 
 
-         <form>
+         <form method="post" action="{{route('storeObituary')}}">
+           @csrf
           <div class="form-row">
             <div class="col-md-6 mb-3">
-              <label for="validationDefault01">First name</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+              <label for="validationDefault02">Name</label>
+              <input type="text" class="form-control" id="validationDefault02" name="name" placeholder="Name"  required>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationDefault02">Last name</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
+              <label for="validationDefaultUsername">Date Of Birth</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2">#</span>
+                </div>
+                <input type="date" class="form-control" id="validationDefaultUsername" placeholder="Date" name="dob" aria-describedby="inputGroupPrepend2" required>
+              </div>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-3 mb-3">
               <label for="validationDefaultUsername">Death Date</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">#</span>
                 </div>
-                <input type="date" class="form-control" id="validationDefaultUsername" placeholder="Date" aria-describedby="inputGroupPrepend2" required>
+                <input type="date" class="form-control" id="validationDefaultUsername" name="dod" placeholder="Date" aria-describedby="inputGroupPrepend2" required>
               </div>
             </div>
-
-            <div class="col-md-6 mb-3">
-              <label for="validationDefault01">Age</label>
-              <input type="number" class="form-control" id="validationDefault01" placeholder="Age" value="Mark" required>
-            </div>
-
-          </div>
-            <div class="form-row">
-            <div class="col-md-6 mb-3">
-            <label for="validationDefault03">City</label>
-            <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
+            <div class="col-md-3 mb-3">
+              <label for="validationDefault03">City</label>
+              <input type="text" class="form-control" id="validationDefault03" name="city" placeholder="City" required>
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationDefault04">State</label>
-              <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
+              <input type="text" class="form-control" id="validationDefault04" name="state" placeholder="State" required>
             </div>
             <div class="col-md-3 mb-3">
               <label for="validationDefault05">Zip</label>
-              <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
+              <input type="text" class="form-control" id="validationDefault05" name="zip" placeholder="Zip" required>
             </div>
+
+
+          </div>
+            <div class="form-row">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Add Condolences</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="exampleFormControlTextarea1">Overview</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="3"></textarea>
             </div>
-
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Upload Picture</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-              </div>
-
             <button class="btn btn-primary" type="submit">Submit form</button>
             </form>
 

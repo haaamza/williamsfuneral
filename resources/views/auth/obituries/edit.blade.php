@@ -12,13 +12,13 @@
   <title>Admin - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
-  <link href="../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="../../css/sb-admin.css" rel="stylesheet">
+  <link href="../../../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
@@ -81,58 +81,54 @@
         <h1 style="text-align:center;margin-bottom:30px;">Edit Obituaries</h1>
 
 
-         <form>
+         <form method="post" action="{{route('updateObituary', ['id'=>$obi->id])}}">
+           @csrf
           <div class="form-row">
             <div class="col-md-6 mb-3">
-              <label for="validationDefault01">First name</label>
-              <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="Mark" required>
+              <label for="validationDefault02">Name</label>
+              <input type="text" class="form-control" id="validationDefault02" name="name" placeholder="Last name" value="{{$obi->name}}" required>
             </div>
             <div class="col-md-6 mb-3">
-              <label for="validationDefault02">Last name</label>
-              <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="Otto" required>
+              <label for="validationDefaultUsername">Date Of Birth</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend2">#</span>
+                </div>
+                <input type="date" class="form-control" name="dob" value="{{$obi->dob}}" id="validationDefaultUsername" placeholder="Date" aria-describedby="inputGroupPrepend2" required>
+              </div>
             </div>
           </div>
 
           <div class="form-row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-3 mb-3">
               <label for="validationDefaultUsername">Death Date</label>
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend2">#</span>
                 </div>
-                <input type="date" class="form-control" id="validationDefaultUsername" placeholder="Date" aria-describedby="inputGroupPrepend2" required>
+                <input type="date" class="form-control" name="dod"  value="{{$obi->dod}}"id="validationDefaultUsername" placeholder="Date" aria-describedby="inputGroupPrepend2" required>
               </div>
             </div>
-
-            <div class="col-md-6 mb-3">
-              <label for="validationDefault01">Age</label>
-              <input type="number" class="form-control" id="validationDefault01" placeholder="Age" value="Mark" required>
+            <div class="col-md-3 mb-3">
+              <label for="validationDefault03">City</label>
+              <input type="text" class="form-control" name="city" id="validationDefault03" value="{{$obi->city}}" placeholder="City" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationDefault04">State</label>
+              <input type="text" class="form-control" name="state" id="validationDefault04" value="{{$obi->state}}" placeholder="State" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label for="validationDefault05">Zip</label>
+              <input type="text" class="form-control" name="zip" id="validationDefault05" value="{{$obi->zip}}" placeholder="Zip" required>
             </div>
 
           </div>
             <div class="form-row">
-            <div class="col-md-6 mb-3">
-            <label for="validationDefault03">City</label>
-            <input type="text" class="form-control" id="validationDefault03" placeholder="City" required>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationDefault04">State</label>
-              <input type="text" class="form-control" id="validationDefault04" placeholder="State" required>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationDefault05">Zip</label>
-              <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" required>
-            </div>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlTextarea1">Add Condolences</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="exampleFormControlTextarea1">Overview</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3">{{$obi->description}}</textarea>
             </div>
-
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Upload Picture</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
-              </div>
 
             <button class="btn btn-primary" type="submit">Submit form</button>
             </form>
@@ -171,21 +167,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="../../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="../../vendor/datatables/jquery.dataTables.js"></script>
-  <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
+  <script src="../../../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../../../vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="../../js/sb-admin.min.js"></script>
+  <script src="../../../js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="../../js/demo/datatables-demo.js"></script>
+  <script src="../../../js/demo/datatables-demo.js"></script>
 
 </body>
 
